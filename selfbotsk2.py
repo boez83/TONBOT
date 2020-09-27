@@ -1557,7 +1557,7 @@ def bot(op):
                     trytonSelfbot.sendMessage(msg.to,msg.contentMetadata["mid"])
                     if 'displayName' in msg.contentMetadata:
                         contact = trytonSelfbot.getContact(msg.contentMetadata["mid"])
-                        path = dhenzaSelfbot.getContact(msg.contentMetadata["mid"]).picturePath
+                        path = trytonSelfbot.getContact(msg.contentMetadata["mid"]).picturePath
                         image = 'http://dl.profile.line.naver.jp'+path
                         trytonSelfbot.sendMessage(msg.to,"Nama : " + msg.contentMetadata["displayName"] + "\nMID : " + msg.contentMetadata["mid"] + "\nStatus Msg : " + contact.statusMessage + "\nPicture URL : http://dl.profile.line-cdn.net/" + contact.pictureStatus)
                         trytonSelfbot.sendImageWithURL(msg.to, image)
@@ -1579,7 +1579,7 @@ def bot(op):
                    query = int(stk_id)
                    if type(query) == int:
                             data = 'https://stickershop.line-scdn.net/stickershop/v1/sticker/'+str(query)+'/ANDROID/sticker.png'
-                            path = dhenzaSelfbot.downloadFileURL(data)
+                            path = trytonSelfbot.downloadFileURL(data)
                             msg_dict1[msg.id] = {"text":str(ret_),"data":path,"from":msg._from,"createdTime":msg.createdTime}
                if msg.contentType == 7:
                 if settings["stickerOn"] == True:
@@ -1597,12 +1597,12 @@ def bot(op):
                             ret_ += "\n🔴 STICKER PACKAGES ID : {}".format(pkg_id)
                             ret_ += "\n🔴 STICKER VERSION : {}".format(stk_ver)
                             ret_ += "\n🔴STICKER URL : line://shop/detail/{}".format(pkg_id)
-                            dhenzaSelfbot.sendMessage(msg.to, str(ret_))
+                            trytonSelfbot.sendMessage(msg.to, str(ret_))
                             query = int(stk_id)
                             if type(query) == int:
                                data = 'https://stickershop.line-scdn.net/stickershop/v1/sticker/'+str(query)+'/ANDROID/sticker.png'
-                               path = dhenzaSelfbot.downloadFileURL(data)
-                               dhenzaSelfbot.sendImage(msg.to,path)
+                               path = trytonSelfbot.downloadFileURL(data)
+                               trytonSelfbot.sendImage(msg.to,path)
                         else:
                             ret_ = " Sticker Info "
                             ret_ += "\n🔴 PRICE : "+soup.findAll('p', attrs={'dhenzaSelfbotass':'mdCMN08Price'})[0].text
@@ -1697,7 +1697,7 @@ def bot(op):
                         if mention ['M'] in Bots:
                            TEAMBOTPROTECT = trytonSelfbot.getContact(msg._from)
                            sendMention1(msg.to, TEAMBOTPROTECT.mid, "", wait["Respontag"])
-                           dhenzaSelfbot.sendMessage(msg.to, None, contentMetadata={"STKID":"52002769","STKPKGID":"11537","STKVER":"1"}, contentType=7)
+                           trytonSelfbot.sendMessage(msg.to, None, contentMetadata={"STKID":"52002769","STKPKGID":"11537","STKVER":"1"}, contentType=7)
                            break
                if 'MENTION' in msg.contentMetadata.keys() != None:
                 if msg._from not in Bots:
@@ -1771,7 +1771,7 @@ def bot(op):
                         target = msg.contentMetadata["mid"]
                         midd = (target)
                         Bots.remove(midd)
-                        trytonSelfbot.sendMessage(msg.to, dhenzaSelfbot.getContact(target).displayName + " has been Expel Bot by " + dhenzaSelfbot.getContact(msg._from).displayName)
+                        trytonSelfbot.sendMessage(msg.to, trytonSelfbot.getContact(target).displayName + " has been Expel Bot by " + dhenzaSelfbot.getContact(msg._from).displayName)
                         target = {}
                         wait["dellbots"] = False
                     else:
@@ -1788,7 +1788,7 @@ def bot(op):
                         trytonSelfbot.findAndAddContactsByMid(target)
                         midd = (target)
                         staff.append(midd)
-                        trytonSelfbot.sendMessage(msg.to, dhenzaSelfbot.getContact(target).displayName + " has been promoted Staff by " + dhenzaSelfbot.getContact(msg._from).displayName)
+                        trytonSelfbot.sendMessage(msg.to, trytonSelfbot.getContact(target).displayName + " has been promoted Staff by " + dhenzaSelfbot.getContact(msg._from).displayName)
                         target = {}
                         wait["addstaff"] = False
                  if wait["dellstaff"] == True:
@@ -1796,7 +1796,7 @@ def bot(op):
                         target = msg.contentMetadata["mid"]
                         midd = (target)
                         staff.remove(midd)
-                        dhenzaSelfbot.sendMessage(msg.to, dhenzaSelfbot.getContact(target).displayName + " has been Expel Staff by " + dhenzaSelfbot.getContact(msg._from).displayName)
+                        trytonSelfbot.sendMessage(msg.to, trytonSelfbot.getContact(target).displayName + " has been Expel Staff by " + dhenzaSelfbot.getContact(msg._from).displayName)
                         target = {}
                         wait["dellstaff"] = False
                     else:
@@ -1813,7 +1813,7 @@ def bot(op):
                         trytonSelfbot.findAndAddContactsByMid(target)
                         midd = (target)
                         admin.append(midd)
-                        trytonSelfbot.sendMessage(msg.to, dhenzaSelfbot.getContact(target).displayName + " has been promoted Admin by " + dhenzaSelfbot.getContact(msg._from).displayName)
+                        trytonSelfbot.sendMessage(msg.to, trytonSelfbot.getContact(target).displayName + " has been promoted Admin by " + dhenzaSelfbot.getContact(msg._from).displayName)
                         target = {}
                         wait["addadmin"] = False
                  if wait["delladmin"] == True:
@@ -1821,7 +1821,7 @@ def bot(op):
                         target = msg.contentMetadata["mid"]
                         midd = (target)
                         admin.remove(midd)
-                        trytonSelfbot.sendMessage(msg.to, dhenzaSelfbot.getContact(target).displayName + " has been Expel Admin by " + dhenzaSelfbot.getContact(msg._from).displayName)
+                        trytonSelfbot.sendMessage(msg.to, trytonSelfbot.getContact(target).displayName + " has been Expel Admin by " + dhenzaSelfbot.getContact(msg._from).displayName)
                         target = {}
                         wait["delladmin"] = False
                     else:
@@ -1944,7 +1944,7 @@ def bot(op):
                     if Setmain["Addimage"] == True:
                         msgid = msg.id
                         fotoo = "https://obs.line-apps.com/talk/m/download.nhn?oid="+msgid
-                        headers = dhenzaSelfbot.Talk.Headers
+                        headers = trytonSelfbot.Talk.Headers
                         r = requests.get(fotoo, headers=headers, stream=True)
                         if r.status_code == 200:
                             path = os.path.join(os.path.dirname(__file__), 'dataPhotos/%s.jpg' % Setmain["Img"])
@@ -2030,7 +2030,7 @@ def bot(op):
                                else:sil = "Limit"
                                if has1 == "OK":sil1 = "Normal"
                                else:sil1 = "Limit"
-                               dhenzaSelfbot.sendMessage(to, "Result:\n\nKick : {} \nInvite : {}".format(sil1,sil))
+                               trytonSelfbot.sendMessage(to, "Result:\n\nKick : {} \nInvite : {}".format(sil1,sil))
 
                         elif cmd == "help2":
                           if wait["selfbot"] == True:
@@ -2115,7 +2115,7 @@ def bot(op):
                           if wait["selfbot"] == True:
                             if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
                                sendMention(msg.to, sender, "ɪɴғᴏ sᴇʟғʙᴏᴛ\n\n")
-                               dhenzaSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': mid}, contentType=13)
+                               trytonSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': mid}, contentType=13)
 
                         elif cmd == "me" or text.lower() == 'me':
                           if wait["selfbot"] == True:
@@ -2148,7 +2148,7 @@ def bot(op):
                                mi = trytonSelfbot.getContact(key1)
                                trytonSelfbot.sendMessage(msg.to, "Nama : "+str(mi.displayName)+"\nMid : " +key1+"\nStatus Msg"+str(mi.statusMessage))
                                trytonSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
-                               if "videoProfile='{" in str(dhenzaSelfbot.getContact(key1)):
+                               if "videoProfile='{" in str(trytonSelfbot.getContact(key1)):
                                    trytonSelfbot.sendVideoWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath)+'/vp.small')
                                else:
                                    trytonSelfbot.sendImageWithURL(msg.to, 'http://dl.profile.line.naver.jp'+str(mi.picturePath))
@@ -2388,7 +2388,7 @@ def bot(op):
                                 thread1 = threading.Thread(target=unsMes, args=(i,))
                                 thread1.start()
                                 thread1.join()
-                            dhenzaSelfbot.sendMessage(msg.to, "Success unsend {} message".format(len(MId))) 
+                            trytonSelfbot.sendMessage(msg.to, "Success unsend {} message".format(len(MId))) 
  #===========BOT UPDATE SC NEW============#                                                                  
                         elif cmd == "upgrup":
                           if wait["selfbot"] == True:
@@ -2419,7 +2419,7 @@ def bot(op):
                             if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
                                 sep = msg.text.split(" ")
                                 url = msg.text.replace(sep[0] + " ","")                            
-                                dhenzaSelfbot.downloadFileURL(url,'path','video.mp4')
+                                trytonSelfbot.downloadFileURL(url,'path','video.mp4')
                                 settings["ChangeVideoProfilePicture"][msg._from] = True
                                 trytonSelfbot.sendMessage(msg.to, "ҡıяıṃ ғȏṭȏṅʏѧ.....")
 
@@ -2782,7 +2782,7 @@ def bot(op):
                           if wait["selfbot"] == True:
                            if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
                               msgs = msg.text.replace('ID line: ','')
-                              conn = dhenzaSelfbot.findContactsByUserid(msgs)
+                              conn = trytonSelfbot.findContactsByUserid(msgs)
                               if True:
                                   trytonSelfbot.sendMessage(msg.to, "http://line.me/ti/p/~" + msgs)
                                   trytonSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': conn.mid}, contentType=13)
@@ -3070,7 +3070,7 @@ def bot(op):
                                     json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
                                     trytonSelfbot.sendMessage(msg.to,"Silahkan kirim mp3 nya...") 
                                 else:
-                                    dhenzaSelfbot.sendMessage(msg.to, "Mp3 itu sudah dalam list") 
+                                    trytonSelfbot.sendMessage(msg.to, "Mp3 itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellmp3 "):
                             if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
@@ -3579,7 +3579,7 @@ def bot(op):
                                 ma = ""
                                 for i in admin:
                                     ma = trytonSelfbot.getContact(i)
-                                    dhenzaSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': i}, contentType=13)
+                                    trytonSelfbot.sendMessage(msg.to, None, contentMetadata={'mid': i}, contentType=13)
 
                         elif cmd == "staff" or text.lower() == 'contact staff':
                             if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
@@ -3821,8 +3821,8 @@ def bot(op):
                                 for m_id in wait["blacklist"]:
                                     a = a + 1
                                     end = '\n'
-                                    ma += str(a) + ". " +dhenzaSelfbot.getContact(m_id).displayName + "\n"
-                                dhenzaSelfbot.sendMessage(msg.to,"Blacklist\n\n"+ma+"\n %s User" %(str(len(wait["blacklist"]))))
+                                    ma += str(a) + ". " +trytonSelfbot.getContact(m_id).displayName + "\n"
+                                trytonSelfbot.sendMessage(msg.to,"Blacklist\n\n"+ma+"\n %s User" %(str(len(wait["blacklist"]))))
 
                         elif cmd == "talkbanlist" or text.lower() == 'talkbanlist':
                           if wait["selfbot"] == True:
@@ -3835,7 +3835,7 @@ def bot(op):
                                 for m_id in wait["Talkblacklist"]:
                                     a = a + 1
                                     end = '\n'
-                                    ma += str(a) + ". " +dhenzaSelfbot.getContact(m_id).displayName + "\n"
+                                    ma += str(a) + ". " +trytonSelfbot.getContact(m_id).displayName + "\n"
                                 trytonSelfbot.sendMessage(msg.to," Talkban User\n\n"+ma+"\nTotal「%s」Talkban User" %(str(len(wait["Talkblacklist"]))))
 
                         elif cmd == "blc" or text.lower() == 'blc':
