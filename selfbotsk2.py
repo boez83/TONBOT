@@ -401,7 +401,7 @@ def runtime(secs):
     
     
 def cloneProfile(mid):
-    contact = dhenzaSelfbot.getContact(mid)
+    contact = trytonSelfbot.getContact(mid)
     if contact.videoProfile == None:
         trytonSelfbot.cloneContactProfile(mid)
     else:
@@ -522,7 +522,7 @@ def welcomeMembers(to, mid):
                 num=(num+1)
             else:
                 try:
-                    no = "\n╚══[ {} ]".format(str(dhenzaSelfbot.getGroup(to).name))
+                    no = "\n╚══[ {} ]".format(str(trytonSelfbot.getGroup(to).name))
                 except:
                     no = "\n╚══[ Success ]"
         trytonSelfbot.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
@@ -843,7 +843,7 @@ def helpbot():
     helpMessage2 += "│" + " │ %i)" % num + key + " Ssider: kata\n"
     num = (num+1)
     helpMessage2 += "│ " + "├──────────────\n"
-    helpMessage2 += "│ " + "╰───• sʙ ʙʏ ©TRITON™ •────\n"
+    helpMessage2 += "│ " + "╰───• sʙ ʙʏ ©TRYTON™ •────\n"
     helpMessage2 += "╰━────────────━ \n"
     helpMessage2 += "https://www.youtube.com/"
     helpMessage2 += "https://youtu.be/"
@@ -1270,7 +1270,7 @@ def bot(op):
         if op.type == 55:
             if cctv['cyduk'][op.param1]==True:
                 if op.param1 in cctv['point']:
-                    Name = dhenzaSelfbot.getContact(op.param2).displayName
+                    Name = trytonSelfbot.getContact(op.param2).displayName
                     if Name in cctv['sidermem'][op.param1]:
                         pass
                     else:
@@ -1477,7 +1477,7 @@ def bot(op):
                if msg.contentType == 7:
                  if wait["sticker"] == True:
                     msg.contentType = 0
-                    dhenzaSelfbot.sendMessage(msg.to,"STKID : " + msg.contentMetadata["STKID"] + "\nSTKPKGID : " + msg.contentMetadata["STKPKGID"] + "\nSTKVER : " + msg.contentMetadata["STKVER"]+ "\n\n「Link Sticker」" + "\nline://shop/detail/" + msg.contentMetadata["STKPKGID"])
+                    trytonSelfbot.sendMessage(msg.to,"STKID : " + msg.contentMetadata["STKID"] + "\nSTKPKGID : " + msg.contentMetadata["STKPKGID"] + "\nSTKVER : " + msg.contentMetadata["STKVER"]+ "\n\n「Link Sticker」" + "\nline://shop/detail/" + msg.contentMetadata["STKPKGID"])
                if msg.contentType == 16:
                   if msg.toType in (2,1,0):
                      try:
@@ -2556,7 +2556,7 @@ def bot(op):
                                 get_contact_time_start = time.time()
                                 get_contact = trytonSelfbot.getContact(mid)
                                 get_contact_time = time.time() - get_contact_time_start
-                                dhenzaSelfbot.sendMessage(msg.to, "●Time Respon●\n\n ●Get Profile\n   %.10f\n ●Get Contact\n   %.10f\n ●Get Group\n   %.10f" % (get_profile_time/3,get_contact_time/3,get_group_time/3))
+                                trytonSelfbot.sendMessage(msg.to, "●Time Respon●\n\n ●Get Profile\n   %.10f\n ●Get Contact\n   %.10f\n ●Get Group\n   %.10f" % (get_profile_time/3,get_contact_time/3,get_group_time/3))
 
                         elif cmd == "speed" or cmd == "sp":
                           if wait["selfbot"] == True:
@@ -2613,7 +2613,7 @@ def bot(op):
                                                 textx += str(b) + ". "
                                             else:
                                                 try:
-                                                    no = "[ {} ]".format(str(dhenzaSelfbot.getGroup(msg.to).name))
+                                                    no = "[ {} ]".format(str(trytonSelfbot.getGroup(msg.to).name))
                                                 except:
                                                     no = "  "
                                         msg.to = msg.to
@@ -3012,7 +3012,7 @@ def bot(op):
                                     contact = mention["M"]
                                     break
                                 try:
-                                    dhenzaSelfbot.cloneContactProfile(contact)
+                                    trytonSelfbot.cloneContactProfile(contact)
                                     ryan = trytonSelfbot.getContact(contact)
                                     zx = ""
                                     zxc = ""
@@ -3572,7 +3572,7 @@ def bot(op):
                                 wait["dblacklist"] = False
                                 wait["Talkwblacklist"] = False
                                 wait["Talkdblacklist"] = False
-                                dhenzaSelfbot.sendMessage(msg.to,"All refresh")
+                                trytonSelfbot.sendMessage(msg.to,"All refresh")
 
                         elif cmd == "admin" or text.lower() == 'contact admin':
                             if msg._from in owner or msg._from in admin or msg._from in staff or msg._from in mid:
