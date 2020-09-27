@@ -62,7 +62,7 @@ except Exception as error:
     if args.traceback: traceback.print_tb(error.__traceback__)
     sys.exit(1)
 
-if dhenzaSelfbot:
+if trytonSelfbot:
     print ('\n[ Your Auth Token ] -> %s\n' % trytonSelfbot.authToken)
 else:
     sys.exit('[ System Message ] - Login Failed.')
