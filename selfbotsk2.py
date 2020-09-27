@@ -497,9 +497,9 @@ def siderMembers(to, mid):
                     no = "\n╚══[ {} ]".format(str(dhenzaSelfbot.getGroup(to).name))
                 except:
                     no = "\n╚══[ Success ]"
-        dhenzaSelfbot.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        trytonSelfbot.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
-        dhenzaSelfbot.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        trytonSelfbot.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def welcomeMembers(to, mid):
     try:
@@ -527,7 +527,7 @@ def welcomeMembers(to, mid):
                     no = "\n╚══[ Success ]"
         trytonSelfbot.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
-        dhenzaSelfbot.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        trytonSelfbot.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def sendMention(to, mid, firstmessage):
     try:
